@@ -16,9 +16,10 @@ public class StarBucks {
 		 * 		and we are moved all requirement that vary in one so if need to change we should change in one place
 		 */
 		BeverageFactory factory = new BeverageFactory();
+		CondimentFactory condimentFactory = new CondimentFactory();
 		Beverage beverage = factory.getBeverage(BeverageConstants.DARKBLAST_TYPE, BeverageConstants.MEDIUM);
-		beverage = new Mocha(beverage);
-		beverage = new Chacos(beverage);
+		beverage = condimentFactory.addCodiment(beverage, BeverageConstants.MOCHA_CODIMENT_TYPE);
+		beverage = condimentFactory.addCodiment(beverage, BeverageConstants.CHACOS_CODIMENT_TYPE);
 		System.out.println(beverage.getDescription() + " $" +beverage.getCost());
 		
 	}
